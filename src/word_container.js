@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import words from './words_list.js';
 import Word from './word.js';
+import './word_container.css';
+
 class WordContainer extends Component{
     
     constructor(props){
@@ -18,12 +20,51 @@ class WordContainer extends Component{
             text,
             lindex: 0,
             letter: cw[0],
+            start: true,
             completed:false,
             err:0,
             lerr:0,
             currtyped:"",
-            wcount: 0
+            wcount: 0,
+            totletters: 0,
+            time:60,
         }
+    }
+
+    beginTyping(){
+        console.log('Starting the timer');
+        this.startTimer();
+        this.setState({
+            start:false,
+        })
+    }
+    async startTimer(){
+        // let curr, nxt;
+        // curr = Date.now();
+        // nxt = 0;
+        
+        //     if (nxt-curr>=1000){
+        var interval = setInterval(() => {
+                this.setState({
+                time:this.state.time-1,
+                    })
+                if(this.state.time<=0){
+                    this.setState({
+                            completed:true,
+                    })
+                    clearInterval(interval);
+                }
+            
+            }, 1000);
+        //         
+        //         curr = Date.now();
+        //         nxt = 0;
+        //     }
+        //     else{
+        //         nxt = Date.now();
+        //     }
+
+        
     }
    nextWord(){
        console.log(typeof this.state.currentWord)
@@ -42,6 +83,7 @@ class WordContainer extends Component{
        this.setState({
            lerr:1,
            err:this.state.err+1,
+           totletters: this.state.totletters+1,
        })
    }
    fixMistake(){
@@ -51,16 +93,35 @@ class WordContainer extends Component{
        })
    }
    letterUpdate(indx, ltr){
-       this.setState({
-        lindex: indx,
-        letter: ltr,
-       })
+       if(this.state.lerr === 0){
+        this.setState({
+            lindex: indx,
+            letter: ltr,
+            totletters: this.state.totletters+1
+        })
+        }
+        else{
+            this.setState({
+                lindex: indx,
+                letter: ltr,
+                
+            })
+        }
    }
    
    typeBox = (e)=>{
        console.log(typeof this.state.current)
        console.log(this.state.currentWord[0])
        console.log(e.target.value)
+       if(this.state.start){
+            this.beginTyping();
+       }
+       if(this.state.completed){
+            // this.stopTyping();
+            
+            console.log("completed");
+            return;
+       }
        if(e.target.value === ' '){
            e.target.value = "";
        }
@@ -69,7 +130,7 @@ class WordContainer extends Component{
            e.target.value = "";
        }
        else if(e.target.value===this.state.currentWord[0]){
-
+            this.letterUpdate(e.target.value.length, " ")
        }
        else if(this.state.currentWord[0].startsWith(e.target.value)){
             this.letterUpdate(e.target.value.length, this.state.currentWord[0][e.target.value.length]);
@@ -85,19 +146,27 @@ class WordContainer extends Component{
        
 
    }
+   stopTyping(){
+
+   }
    render(){ 
     //    console.log(this.state.current)
-    
+    let WPM = isNaN(((this.state.totletters*60)/(5*(60-this.state.time)))) || ((this.state.totletters*60)/(5*(60-this.state.time)))===Infinity ? 0 : ((this.state.totletters*60)/(5*(60-this.state.time))).toFixed(2);
+    let Accuracy = isNaN((1-(this.state.err/this.state.totletters))*100) ? 0 : ((1-(this.state.err/this.state.totletters))*100).toFixed(2)
     return (
-      <div>
-          <h1>Write something</h1>
-       
-          {console.log(this.state.currentWord)}
-     <div style={{flexDirection:'row', display:'inline-flex', flexWrap:'wrap'}}>  
-          <Word word={this.state.currentWord[0]} color={this.state.lerr===0?undefined:'red'}/>
+      <div className="type-container">
+          <h1>Welcome to Proton Typer!</h1>
+
+        <div><div>Words Typed: {this.state.wcount}</div>
+        <div><span>Accuracy:</span> {Accuracy}%</div>
+        <div>Time Remaining: {this.state.time}</div>
+        <div><span>WPM:</span> {WPM}</div>
+        </div>
+        <div className="word-row">  
+          <Word word={this.state.currentWord[0]} tp="current" correct={this.state.lerr===0?true:false}/>
           {this.state.current.map((x,index)=><Word word={x} key={index+this.state.wcount}/>)}
           </div>     
-          <input style={{width:'100%'}} onChange={this.typeBox}/>
+          <input className="input-box" onChange={this.typeBox}/>
         
       </div>
         )

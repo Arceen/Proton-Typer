@@ -5,7 +5,6 @@ import WordContainer from './word_container.js'
 const App = ()=> {
   return (
     <div>
-      Hello
       <WordContainer />
     </div>
   );

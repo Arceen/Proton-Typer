@@ -1,23 +1,23 @@
-import React,{Component} from 'react';
-let styles={
-    fontSize: '20px',
-    margin:'2px',
-    width:'auto',
-    overflow:'hidden',
-    textAlign:'center',
-    display:'flex',
-    flexWrap:'wrap'
-}
+import React from 'react';
+import './word.css';
 
 const Word = (props)=>{
     let c = {}
-    if (props.color)
-        c = Object.assign({},styles,{background: props.color, border:'1px solid red'});
+    console.log(props)
+    if (props.tp === "current"){
+        console.log("Current")
+        if(props.correct){
+            c = Object.assign({},{background: 'lightgreen'});
+        }
+        else{
+            c = Object.assign({},{background: 'red'});
+        }
+    }
     else{
-        c = Object.assign({},styles,{background: 'white'});
+        c = Object.assign({},{background: 'pink'})
     }
     return(
-    <div style={c}>{props.word}<span style={{display:"inline-block", width: "20px"}}></span>
+    <div className="word-style" style={c}>{props.word}<span style={{display:"inline-block", width: "2em"}}></span>
     </div>
     )
 }

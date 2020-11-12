@@ -1,0 +1,23 @@
+.type-container{
+    background-color:ghostwhite;
+    text-align: center;
+}
+.input-box{
+    width:10em; 
+    height:2em;
+    font-size:30px;
+    align-self: center;
+}
+.word-row{
+    
+    max-width:90%;
+    height:100%;
+    display:grid;
+    gap:1rem;
+    grid-auto-flow:column;
+    margin:0 auto;
+    overflow-x:hidden;
+}
+h1{
+    text-align: center;
+}
