@@ -5,7 +5,7 @@
 <p>
   This app uses <b>Node.js</b> for backend and <b>React.js</b> for the frontend.
   Uses vanilla css for the styles. The page might need an active to get the full styles from google fonts.
-  Here's the <a href="">Demo Video.</a>
+  Here's the <a href="https://youtu.be/s4FQBWTi_tQ">Demo Video.</a>
 </p>
 
 ## Installation
