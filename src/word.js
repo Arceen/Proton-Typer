@@ -14,7 +14,7 @@ const Word = (props)=>{
         }
     }
     else{
-        c = Object.assign({},{background: 'pink'})
+        c = Object.assign({},{background: 'lightpink'})
     }
     return(
     <div className="word-style" style={c}>{props.word}<span style={{display:"inline-block", width: "2em"}}></span>

@@ -1,23 +1,239 @@
 .type-container{
-    background-color:ghostwhite;
+    /* background-color:rgba(179, 176, 163, 0.281); */
     text-align: center;
+    height: 100%;
 }
+
 .input-box{
     width:10em; 
     height:2em;
     font-size:30px;
     align-self: center;
+    text-align:center;
+    border:none;
+    border-bottom:2px solid rgb(45, 50, 68);
+    background:transparent;
+    background-image: linear-gradient(to right, rgba(85, 148, 112, 0.459),rgba(131, 210, 228, 0.671));
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    
+}
+.input-box::placeholder{
+    color:rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+@-webkit-keyframes wobble { 
+    0% { -webkit-transform: translateX(0%); } 
+    15% { -webkit-transform: translateX(-25%) rotate(-5deg); } 
+    30% { -webkit-transform: translateX(20%) rotate(3deg); } 
+    45% { -webkit-transform: translateX(-15%) rotate(-3deg); } 
+    60% { -webkit-transform: translateX(10%) rotate(2deg); } 
+    75% { -webkit-transform: translateX(-5%) rotate(-1deg); }
+    100% { -webkit-transform: translateX(0%); } 
+ }
+@keyframes wobble {
+    0% { transform: translateX(0%); } 
+    15% { transform:  rotate(-5deg); } 
+    30% { transform: rotate(3deg); } 
+    45% { transform:rotate(-3deg); } 
+    60% { transform: rotate(2deg); }
+    75% { transform:  rotate(-1deg); }
+    100% { transform: translateX(0%); } 
+ } 
+.input-box-err{
+    width:10em; 
+    height:2em;
+    font-size:30px;
+    text-align:center;
+    border:none;
+    
+    border-bottom:2px solid red;
+    align-self: center;
+    animation-duration: 0.45s;
+    -webkit-animation-duration: 0.45s;
+    animation-name: wobble;
+    -webkit-animation-name: wobble; 
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    background:transparent;
+    background-image: linear-gradient(to left, rgba(80, 82, 78, 0.151),rgba(184, 131, 170, 0.808));
+    
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.input-box-err::placeholder{
+    color:rgb(235, 42, 42);
+    text-align: center;
 }
 .word-row{
-    
-    max-width:90%;
+    background-image: linear-gradient(to left, rgba(235, 236, 191, 0.5) , rgba(83, 110, 151, 0.377));
+    animation: 1s ease-out 0s 1 slideInFromRight;
+    max-width:85%;
     height:100%;
     display:grid;
-    gap:1rem;
+    
     grid-auto-flow:column;
     margin:0 auto;
     overflow-x:hidden;
+
+}
+.info-section{
+    align-self:center;
+    height:100%;
+    display:inline-block;
+    margin:0 auto;
+}
+.space-div{
+    height:3.5em;
 }
 h1{
+    margin-top:1em;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.sh{
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2em;
+}
+.timespanlot{
+    margin-top: 1em;
+    color:#313030;
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.timespanlittle{
+    color:#ff0505a1;
+    font-size: 1.3em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.completed-container {
+    background-color:rgba(250, 250, 210, 0.329);
+    text-align: center;
+    animation: 1s ease-in 0s 1 fade-in;
+    margin:0 auto;
+    
+    margin-top: 12em;
+    padding-top: 1em;
+    height:20em;
+    
+	/* animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+.completed-container h2{
+    text-align: center;
+    font-family: cursive;
+    
+    
+	/* animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+
+  @keyframes fade-in {
+    0% {
+        opacity: 0;
+      }
+      100% {
+        opacity:1;
+      }
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  h1 {  
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    
+    background-image: linear-gradient(to right, rgba(225, 231, 198, 0.329) , rgba(181, 204, 81, 0.5));;
+    
+    padding: 30px;
+  }
+  
+  .btnAgain {
+
+    text-align: center;
+    cursor: pointer;
+    font-size:1em;
+    margin: 0 0 0 0;
+    color:lightcyan;
+    background-color: #2d2e1d;
+    border: none;
+    padding: 10px;
+    width:100px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+
+.btnAgain:hover{
+   background:rgb(235, 243, 231);
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+}
+
+.btnAgain:after {
+    content: "";
+    background: #f1c40f;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.btnAgain:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+.skilldiv-0{
+    color:rgb(110, 110, 107);
+}
+.skilldiv-1{
+    color:rgb(89, 153, 87);
+}
+.skilldiv-2{
+    color:rgb(71, 165, 134);
+}
+.skilldiv-3{
+    color:rgb(77, 112, 209);
+}
+.skilldiv-4{
+    color:rgb(190, 49, 155);
+}
+.skilldiv-5{
+    color:rgb(228, 199, 38);
+}
+.skilldiv-6{
+    color:rgb(211, 46, 46);
 }
