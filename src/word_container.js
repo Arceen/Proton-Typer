@@ -13,7 +13,7 @@ class WordContainer extends Component{
         for (let i = 0; i<300; i++){
             text.push(t[Math.floor(Math.random()*3000)])
         }
-        const baseTime = 2
+        const baseTime = 1
         var cw = text.slice(0,1)[0]
         this.state={
             currentWord: text.splice(0,1),
@@ -250,8 +250,8 @@ class WordContainer extends Component{
                 <h1>You are officially Awesome!</h1>
                 <div><span class="sh">Your WPM:</span>&nbsp; {this.state.currWPM}</div>
                 <div><span class="sh">Your Accuracy:</span> &nbsp;{this.state.currAcc}%</div>
-        <div><span class="sh">Skill Level for This Text:</span>&nbsp;<span className={"skilldiv-"+this.getColorForSkill(this.state.currTypeSkillLevel)}>{this.state.currTypeSkillLevel}</span></div>
-                <div><h4>Try again?</h4></div>
+        <div><span class="sh">Skill Level for This Text:</span>&nbsp;&nbsp;<span className={"skilldiv-"+this.getColorForSkill(this.state.currTypeSkillLevel)}>{this.state.currTypeSkillLevel}</span></div>
+                <div><h4><i>Try again?</i></h4></div>
                 <button className="btnAgain" onClick={this.tryAgain}>Yes!</button>
             </div>
         )
@@ -279,7 +279,7 @@ class WordContainer extends Component{
                 {this.state.current.map((x,index)=><Word word={x} key={index+this.state.wcount}/>)}
                 </div>     
                 <div className="space-div"></div>
-                <input placeholder={this.state.start?"Let's Start...":"Keep Going"} className={this.state.lerr === 1?"input-box-err":"input-box"} onChange={this.typeBox} autoFocus/>
+                <input placeholder={this.state.start?"Let's Start...":"Keep Going"} className={this.state.start?"input-box-animated":this.state.lerr === 1?"input-box-err":"input-box"} onChange={this.typeBox} autoFocus/>
                 
             </div>
             )

@@ -4,7 +4,7 @@
     height: 100%;
 }
 
-.input-box{
+.input-box-animated{
     width:10em; 
     height:2em;
     font-size:30px;
@@ -19,7 +19,22 @@
     border-top-left-radius: 5px;
     
 }
-.input-box::placeholder{
+
+.input-box{
+    width:10em; 
+    height:2em;
+    font-size:30px;
+    align-self: center;
+    text-align:center;
+    border:none;
+    border-bottom:2px solid rgb(45, 50, 68);
+    background:transparent;
+    background-image: linear-gradient(to right, rgba(85, 148, 112, 0.459),rgba(131, 210, 228, 0.671));
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    
+}
+.input-box-animated::placeholder .input-box::placeholder{
     color:rgb(0, 0, 0);
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -115,18 +130,26 @@ h1{
     animation: 1s ease-in 0s 1 fade-in;
     margin:0 auto;
     
-    margin-top: 12em;
+    margin-top: 11em;
     padding-top: 1em;
+    padding-bottom: 2em;
     height:20em;
+    font-family: 'Lato',sans-serif;
     
 	/* animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+.info-section{
+    font-family: 'Lato',sans-serif;
 }
 .completed-container h2{
     text-align: center;
     font-family: cursive;
-    
+
     
 	/* animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+.completed-container h1{
+    background-image: linear-gradient(to right,silver, gold,silver);
 }
 
   @keyframes fade-in {
@@ -173,7 +196,7 @@ h1{
   }
   
   .btnAgain {
-
+    border-radius:3px;
     text-align: center;
     cursor: pointer;
     font-size:1em;
@@ -192,7 +215,7 @@ h1{
 
 
 .btnAgain:hover{
-   background:rgb(235, 243, 231);
+   background:rgba(255, 197, 39, 0.856);
    box-shadow:0px 2px 10px 5px #97B1BF;
    color:#000;
 }
@@ -216,24 +239,38 @@ h1{
     opacity: 1;
     transition: 0s
 }
+.sh{
+    font-family: 'Lato', sans-serif ;
+}
 .skilldiv-0{
+    font-family: 'Open Sans', sans-serif;
+    font-style:bold;
+    font-size:1.1em;
     color:rgb(110, 110, 107);
 }
 .skilldiv-1{
+    font-family: 'Open Sans', sans-serif;
+    font-style:bold;
+    font-family: 'Open Sans', sans-serif;
     color:rgb(89, 153, 87);
 }
 .skilldiv-2{
+    font-family: 'Open Sans', sans-serif;
     color:rgb(71, 165, 134);
 }
 .skilldiv-3{
+    font-family: 'Open Sans', sans-serif;
     color:rgb(77, 112, 209);
 }
 .skilldiv-4{
+    font-family: 'Open Sans', sans-serif;
     color:rgb(190, 49, 155);
 }
 .skilldiv-5{
+    font-family: 'Open Sans', sans-serif;
     color:rgb(228, 199, 38);
 }
 .skilldiv-6{
+    font-family: 'Open Sans', sans-serif;
     color:rgb(211, 46, 46);
 }
