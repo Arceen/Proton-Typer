@@ -1,6 +1,6 @@
 # Proton Typer
 <p>A WebApp that let's you test your typing speed and skill against a list of 3000 of the most common words in the English language ( <b>Caution</b> : Some words
-  may contain <i>profanity</i>.
+  may contain <em>profanity</em>)
 </p>
 <p>
   This app uses <b>Node.js</b> for backend and <b>React.js</b> for the frontend.
